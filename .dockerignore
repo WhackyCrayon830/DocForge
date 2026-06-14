@@ -1,0 +1,15 @@
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+
+.git/
+.idea/
+
+.venv/
+venv/
+
+data/
+models/
+
+node_modules/

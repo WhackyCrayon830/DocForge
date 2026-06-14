@@ -1,0 +1,44 @@
+services:
+  dev:
+    container_name: docforge-dev
+
+    build:
+      context: .
+      dockerfile: Dockerfile
+
+    image: docforge:dev
+
+    platform: linux/amd64
+
+    labels:
+      org.opencontainers.image.title: "DocForge"
+      org.opencontainers.image.description: "Agentic RAG document generator"
+      org.opencontainers.image.vendor: "Bharat Electronics Limited"
+      org.opencontainers.image.version: "1.0.0"
+
+    environment:
+      PYTHONPATH: /app
+      PYTHONUNBUFFERED: 1
+
+    working_dir: /app
+
+    volumes:
+      - .:/app
+      - ollama-data:/root/.ollama
+      - pip-cache:/root/.cache/pip
+
+    ports:
+      - "8501:8501"
+      - "8000:8000"
+      - "11434:11434"
+
+    stdin_open: true
+    tty: true
+
+    restart: unless-stopped
+
+    command: bash
+
+volumes:
+  ollama-data:
+  pip-cache:
