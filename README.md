@@ -416,7 +416,7 @@ ollama serve
 ### Streamlit UI
 
 ```bash
-streamlit run docforge/app/main.py
+streamlit run docforge/app/appapp.py
 ```
 
 ### Terminal UI

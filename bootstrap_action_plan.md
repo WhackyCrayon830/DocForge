@@ -121,7 +121,8 @@ import os
 import tomllib
 from typing import Any, Dict
 
-DEFAULT_CONFIG_PATH = "config/default.toml"
+DEFAULT_CONFIG_PATH = "docforge/core/config/default.toml"
+
 
 def load_config(config_path: str = DEFAULT_CONFIG_PATH) -> Dict[str, Any]:
     """Loads configuration options from a TOML file."""
@@ -129,7 +130,7 @@ def load_config(config_path: str = DEFAULT_CONFIG_PATH) -> Dict[str, Any]:
     if os.path.exists(config_path):
         with open(config_path, "rb") as f:
             config = tomllib.load(f)
-            
+
     # Inject environment overrides
     config["ollama_host"] = os.getenv("OLLAMA_HOST", config.get("ollama_host", "http://localhost:11434"))
     config["data_dir"] = os.getenv("DATA_DIR", config.get("data_dir", "data"))
@@ -212,7 +213,7 @@ def check_environment():
 
 def launch_web():
     print("🚀 Starting Streamlit Web App...")
-    subprocess.run(["streamlit", "run", "docforge/app/main.py"])
+    subprocess.run(["streamlit", "run", "docforge/app/app.py"])
 
 def launch_tui():
     print("💻 Starting Textual TUI dashboard...")

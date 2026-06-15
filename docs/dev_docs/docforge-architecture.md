@@ -2245,7 +2245,7 @@ _MODULE_LOGGERS: dict[str, bool] = {}
 def setup_logging(debug: bool = False) -> None:
     """
     Initialise structlog + Rich terminal handler + rotating file handler.
-    Call once at application startup (in launcher.py and app/main.py).
+    Call once at application startup (in launcher.py and app/app.py).
     """
     cfg      = get_config()
     log_dir  = Path(cfg.app.log_dir)
@@ -2933,7 +2933,7 @@ echo ""
 echo "  🚀 Starting Streamlit on port 8501..."
 echo ""
 
-exec streamlit run app/main.py \
+exec streamlit run app/app.py \
     --server.port=8501 \
     --server.address=0.0.0.0 \
     --server.fileWatcherType=none \

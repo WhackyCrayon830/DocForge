@@ -1,0 +1,13 @@
+services:
+  docforge:
+
+    build:
+      context: ../..
+      dockerfile: docker/production/Dockerfile
+
+    image: docforge:latest
+
+    ports:
+      - "8501:8501"
+
+    restart: unless-stopped

@@ -1,15 +1,25 @@
-__pycache__/
+.git
+.gitignore
+__pycache__
 *.pyc
 *.pyo
 *.pyd
 
-.git/
-.idea/
+.venv
+venv
 
-.venv/
-venv/
+.pytest_cache
+.mypy_cache
 
-data/
-models/
+tests
 
-node_modules/
+*.log
+
+node_modules
+
+data
+outputs
+cache
+
+Dockerfile
+compose.yaml
