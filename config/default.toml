@@ -1,0 +1,56 @@
+[app]
+name        = "DocForge"
+version     = "1.0.0"
+data_dir    = "data"
+log_dir     = "data/logs"
+log_level   = "INFO"
+
+[projects]
+default_project = "default"
+
+[ollama]
+base_url           = "http://localhost:11434"
+timeout_sec        = 120
+stream             = true
+connect_retry_max  = 5
+connect_retry_wait = 3
+
+[models]
+itd_model        = "gemma3:7b"
+ctd_model        = "qwen2.5-coder:7b"
+embedding_model  = "nomic-embed-text"
+
+[agents]
+itd_context_budget_tokens = 3000
+ctd_context_budget_tokens = 3000
+max_retrieval_chunks      = 8
+min_relevance_score       = 0.68
+reviewer_enabled          = true
+
+[encryption]
+enabled    = true
+key_file   = "data/.keystore"
+
+[ocr]
+engine = "tesseract"
+dpi = 300
+preprocessing = true
+deskew = true
+denoise = true
+binarize = true
+post_correction = true
+
+[launcher]
+service_retry_max = 5
+service_retry_wait = 3
+ollama_start_cmd = "ollama serve"
+
+[logging.modules]
+ingest = true
+ocr = true
+embeddings = true
+agents = true
+llm = true
+output = true
+template = true
+plugins = true
